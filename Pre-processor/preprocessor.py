@@ -9,7 +9,8 @@ class cresource:
         print (self.__id)
 
 import glob, os
-import moviepy.editor as mp 
+import youtube_dl
+#import moviepy.editor as mp 
 
 from retriever.retriever import getResource
 from assigner.assigner import assignID
@@ -27,10 +28,17 @@ def preprocess(resource, resource_type):
 				'preferredcodec': 'wav',
 				'preferredquality': '192',
 			}]})
-	else:
-		clip = mp.VideoFileClip(resource) 
-		clip.audio.write_audiofile(resource)
-	
+		
+	ydl_opts = {
+    'format': 'bestvideo+bestaudio/best',
+    'outtmpl': 'demo.%(ext)s',
+	}
+	with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+		ydl.download([resource])
+#	else:
+#		clip = mp.VideoFileClip(resource) 
+#		clip.audio.write_audiofile(resource)
+#	
 	#	for file in os.listdir(""):
 	#		if file.endswith(".txt"):
 	#		    print(os.path.join("/mydir", file)) 
@@ -48,5 +56,5 @@ def preprocess(resource, resource_type):
 
 	return res
 
-print(preprocess('https://www.youtube.com/watch?v=bEUupEmWcvk', "link").features)
+print(preprocess('https://www.youtube.com/watch?v=L5PFmrcbstQ', "link").features)
 
