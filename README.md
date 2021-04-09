@@ -1,6 +1,8 @@
 # beka-ivella
 
-  Run as: python3 Pre-processor/preprocessor.py
+  Run as:
+  cd Jaatre!!
+  ./appender.sh
   
   NOTE: Please view as raw
   
