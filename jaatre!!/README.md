@@ -1,15 +1,7 @@
-# Subtitles-generator
+# The whole thing
 
-online generator transcript for video from link using **Google Speech API** and **youtube_dl**
+requirements may be messy, idk
 
-To install requirements run
+run as : >./appender.sh
 
-```pip install -r requirements.txt```
-
-To download video from link run
-
-```python3 download_video.py -url https:/your-link```
-
-To recognize and generate transcript run
-
-```python3 recognize.py -video your_video.mp4```
+MIght need to give 777 permissions if denied
